@@ -32,9 +32,11 @@ livenessProbe:
   httpGet:
     path: /nifi
     port: 8443
+    scheme: HTTPS
 readinessProbe:
   httpGet:
     path: /nifi
     port: 8443
+    scheme: HTTPS
 
 ingressHostName: semantification-service
