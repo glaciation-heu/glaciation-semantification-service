@@ -33,10 +33,12 @@ livenessProbe:
     path: /nifi
     port: 8443
     scheme: HTTPS
+    host: localhost
 readinessProbe:
   httpGet:
     path: /nifi
     port: 8443
     scheme: HTTPS
+    host: localhost
 
 ingressHostName: semantification-service
