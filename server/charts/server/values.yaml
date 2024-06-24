@@ -24,17 +24,17 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8443
 
 resources: {}
 
 livenessProbe:
   httpGet:
-    path: /
-    port: http
+    path: /nifi
+    port: https
 readinessProbe:
   httpGet:
-    path: /
-    port: http
+    path: /nifi
+    port: https
 
 ingressHostName: semantification-service
