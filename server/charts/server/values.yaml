@@ -31,10 +31,10 @@ resources: {}
 livenessProbe:
   httpGet:
     path: /nifi
-    port: https
+    port: 8443
 readinessProbe:
   httpGet:
     path: /nifi
-    port: https
+    port: 8443
 
 ingressHostName: semantification-service
