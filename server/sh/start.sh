@@ -45,6 +45,8 @@ prop_replace 'nifi.remote.input.host'           "${NIFI_REMOTE_INPUT_HOST:-$HOST
 prop_replace 'nifi.remote.input.socket.port'    "${NIFI_REMOTE_INPUT_SOCKET_PORT:-10000}"
 prop_replace 'nifi.remote.input.secure'         'true'
 prop_replace 'nifi.cluster.protocol.is.secure'  'true'
+# Test
+prop_replace 'nifi.web.https.host'		'localhost'
 
 # Set nifi-toolkit properties files and baseUrl
 "${scripts_dir}/toolkit.sh"
