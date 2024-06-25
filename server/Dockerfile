@@ -113,3 +113,6 @@ WORKDIR ${NIFI_HOME}
 # thus normal shell processing does not happen:
 # https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example
 ENTRYPOINT ["../scripts/start.sh"]
+
+# Set GLACIATION credentials username password
+RUN $NIFI_HOME/bin/nifi.sh set-single-user-credentials glaciation glaciation
