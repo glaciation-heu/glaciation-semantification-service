@@ -56,6 +56,7 @@ RUN groupadd -g ${GID} nifi || groupmod -n nifi `getent group ${GID} | cut -d: -
     && apt-get install -y python3-venv \
     && apt-get -y autoremove \
     && apt-get clean autoclean \
+    && apt-get install vim curl -y \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 USER nifi
