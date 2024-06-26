@@ -101,8 +101,6 @@ fi
 if [ -n "${SINGLE_USER_CREDENTIALS_USERNAME}" ] && [ -n "${SINGLE_USER_CREDENTIALS_PASSWORD}" ]; then
     ${NIFI_HOME}/bin/nifi.sh set-single-user-credentials "${SINGLE_USER_CREDENTIALS_USERNAME}" "${SINGLE_USER_CREDENTIALS_PASSWORD}"
 fi
-# Set credential
-${NIFI_HOME}/bin/nifi.sh set-single-user-credentials glaciation glaciation
 
 . "${scripts_dir}/update_cluster_state_management.sh"
 

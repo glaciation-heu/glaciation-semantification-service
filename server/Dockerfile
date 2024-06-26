@@ -40,7 +40,7 @@ ENV NIFI_PID_DIR=${NIFI_HOME}/run
 ENV NIFI_LOG_DIR=${NIFI_HOME}/logs
 # Set GLACIATION credentials username password
 ENV SINGLE_USER_CREDENTIALS_USERNAME=glaciation
-ENV SINGLE_USER_CREDENTIALS_PASSWORD=glaciation
+ENV SINGLE_USER_CREDENTIALS_PASSWORD=glaciationpassword
 
 ADD sh/ ${NIFI_BASE_DIR}/scripts/
 RUN chmod -R +x ${NIFI_BASE_DIR}/scripts/*.sh \
