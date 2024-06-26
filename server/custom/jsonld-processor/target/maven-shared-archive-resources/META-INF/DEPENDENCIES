@@ -1,0 +1,141 @@
+// ------------------------------------------------------------------
+// Transitive dependencies of this project determined from the
+// maven pom organized by organization.
+// ------------------------------------------------------------------
+
+jsonld-processor
+
+
+From: 'an unknown organization'
+
+  - Titanium JSON-LD 1.1 (JRE11) (https://github.com/filip26/titanium-json-ld) com.apicatalog:titanium-json-ld:jar:1.4.0
+    License: Apache License, Version 2.0  (http://apache.org/licenses/LICENSE-2.0)
+
+  - dexx (https://github.com/andrewoma/dexx) com.github.andrewoma.dexx:collection:jar:0.7
+    License: MIT License  (http://www.opensource.org/licenses/mit-license.php)
+
+  - Caffeine cache (https://github.com/ben-manes/caffeine) com.github.ben-manes.caffeine:caffeine:jar:3.1.8
+    License: Apache License, Version 2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Gson (https://github.com/google/gson/gson) com.google.code.gson:gson:jar:2.10.1
+    License: Apache-2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Protocol Buffers [Core] (https://developers.google.com/protocol-buffers/protobuf-java/) com.google.protobuf:protobuf-java:jar:3.25.3
+    License: BSD-3-Clause  (https://opensource.org/licenses/BSD-3-Clause)
+
+  - json-path (https://github.com/jayway/JsonPath) com.jayway.jsonpath:json-path:jar:2.9.0
+    License: The Apache Software License, Version 2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Apache Thrift (http://thrift.apache.org) org.apache.thrift:libthrift:jar:0.19.0
+    License: The Apache Software License, Version 2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Checker Qual (https://checkerframework.org/) org.checkerframework:checker-qual:jar:3.37.0
+    License: The MIT License  (http://opensource.org/licenses/MIT)
+
+  - org.roaringbitmap:RoaringBitmap (https://github.com/RoaringBitmap/RoaringBitmap) org.roaringbitmap:RoaringBitmap:jar:1.0.5
+    License: Apache 2  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+
+From: 'Chemouni Uriel' (https://urielch.github.io/)
+
+  - ASM based accessors helper used by json-smart (https://urielch.github.io/) net.minidev:accessors-smart:bundle:2.5.0
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - JSON Small and Fast Parser (https://urielch.github.io/) net.minidev:json-smart:bundle:2.5.0
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+
+From: 'Eclipse Foundation' (https://www.eclipse.org)
+
+  - JSON-P Default Provider (https://github.com/eclipse-ee4j/jsonp) org.glassfish:jakarta.json:bundle:2.0.1
+    License: Eclipse Public License 2.0  (https://projects.eclipse.org/license/epl-2.0)
+    License: GNU General Public License, version 2 with the GNU Classpath Exception  (https://projects.eclipse.org/license/secondary-gpl-2.0-cp)
+
+
+From: 'Google LLC' (http://www.google.com)
+
+  - error-prone annotations (https://errorprone.info/error_prone_annotations) com.google.errorprone:error_prone_annotations:jar:2.21.1
+    License: Apache 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+
+From: 'OW2' (http://www.ow2.org/)
+
+  - asm (http://asm.ow2.io/) org.ow2.asm:asm:jar:9.6
+    License: BSD-3-Clause  (https://asm.ow2.io/license.html)
+
+
+From: 'The Apache Software Foundation' (https://www.apache.org/)
+
+  - Apache Commons CLI (https://commons.apache.org/proper/commons-cli/) commons-cli:commons-cli:jar:1.6.0
+    License: Apache-2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Apache Commons Codec (https://commons.apache.org/proper/commons-codec/) commons-codec:commons-codec:jar:1.16.0
+    License: Apache-2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Apache Commons IO (https://commons.apache.org/proper/commons-io/) commons-io:commons-io:jar:2.15.1
+    License: Apache-2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Apache Commons Collections (https://commons.apache.org/proper/commons-collections/) org.apache.commons:commons-collections4:jar:4.4
+    License: Apache License, Version 2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Apache Commons Compress (https://commons.apache.org/proper/commons-compress/) org.apache.commons:commons-compress:jar:1.25.0
+    License: Apache-2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Apache Commons CSV (https://commons.apache.org/proper/commons-csv/) org.apache.commons:commons-csv:jar:1.10.0
+    License: Apache-2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Apache Commons Lang (https://commons.apache.org/proper/commons-lang/) org.apache.commons:commons-lang3:jar:3.14.0
+    License: Apache-2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Apache Jena - Libraries POM (https://jena.apache.org/apache-jena-libs/) org.apache.jena:apache-jena-libs:pom:5.0.0
+    License: The Apache Software License, Version 2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Apache Jena - ARQ (https://jena.apache.org/jena-arq/) org.apache.jena:jena-arq:jar:5.0.0
+    License: The Apache Software License, Version 2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Apache Jena - Base (https://jena.apache.org/jena-base/) org.apache.jena:jena-base:jar:5.0.0
+    License: The Apache Software License, Version 2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Apache Jena - Core (https://jena.apache.org/jena-core/) org.apache.jena:jena-core:jar:5.0.0
+    License: The Apache Software License, Version 2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Apache Jena - DBOE Base (https://jena.apache.org/jena-dboe-base/) org.apache.jena:jena-dboe-base:jar:5.0.0
+    License: Apache License 2.0  (http://www.apache.org/licenses/LICENSE-2.0)
+
+  - Apache Jena - DBOE Indexes (https://jena.apache.org/jena-dboe-index/) org.apache.jena:jena-dboe-index:jar:5.0.0
+    License: Apache License 2.0  (http://www.apache.org/licenses/LICENSE-2.0)
+
+  - Apache Jena - DBOE Storage (https://jena.apache.org/jena-dboe-storage/) org.apache.jena:jena-dboe-storage:jar:5.0.0
+    License: Apache License 2.0  (http://www.apache.org/licenses/LICENSE-2.0)
+
+  - Apache Jena - DBOE Transactional Datastructures (https://jena.apache.org/jena-dboe-trans-data/) org.apache.jena:jena-dboe-trans-data:jar:5.0.0
+    License: Apache License 2.0  (http://www.apache.org/licenses/LICENSE-2.0)
+
+  - Apache Jena - DBOE Transactions (https://jena.apache.org/jena-dboe-transaction/) org.apache.jena:jena-dboe-transaction:jar:5.0.0
+    License: Apache License 2.0  (http://www.apache.org/licenses/LICENSE-2.0)
+
+  - Apache Jena - IRI (https://jena.apache.org/jena-iri/) org.apache.jena:jena-iri:jar:5.0.0
+    License: The Apache Software License, Version 2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Apache Jena - RDF Connection (https://jena.apache.org/jena-rdfconnection/) org.apache.jena:jena-rdfconnection:jar:5.0.0
+    License: Apache 2.0 License  (http://www.apache.org/licenses/LICENSE-2.0)
+
+  - Apache Jena - RDF Patch (https://jena.apache.org/jena-rdfpatch/) org.apache.jena:jena-rdfpatch:jar:5.0.0
+    License: The Apache Software License, Version 2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Apache Jena - SHACL (https://jena.apache.org/jena-shacl/) org.apache.jena:jena-shacl:jar:5.0.0
+    License: The Apache Software License, Version 2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Apache Jena - ShEx (https://jena.apache.org/jena-shex/) org.apache.jena:jena-shex:jar:5.0.0
+    License: The Apache Software License, Version 2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Apache Jena - TDB1 (Native Triple Store) (https://jena.apache.org/jena-tdb1/) org.apache.jena:jena-tdb1:jar:5.0.0
+    License: The Apache Software License, Version 2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+  - Apache Jena - TDB2 (Native Triple Store) (https://jena.apache.org/jena-tdb2/) org.apache.jena:jena-tdb2:jar:5.0.0
+    License: The Apache Software License, Version 2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+
+
+
+
