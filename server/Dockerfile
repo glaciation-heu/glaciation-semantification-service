@@ -111,7 +111,7 @@ WORKDIR ${NIFI_HOME}
 
 # Copy custom processor to extensions
 RUN cp ../custom/nifi-jsonld-nar-2.0.0-M2.nar extensions
-RUN cp ../custom/nifi-jsonld-nar-2.0.0-M2.nar narextensions
+RUN cp ../custom/nifi-jsonld-nar-2.0.0-M2.nar nar_extensions
  
 
 # Apply configuration and start NiFi
