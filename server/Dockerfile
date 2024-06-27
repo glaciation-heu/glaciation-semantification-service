@@ -41,6 +41,8 @@ ENV NIFI_LOG_DIR=${NIFI_HOME}/logs
 # Set GLACIATION credentials username password
 ENV SINGLE_USER_CREDENTIALS_USERNAME=glaciation
 ENV SINGLE_USER_CREDENTIALS_PASSWORD=glaciationpassword
+# Set props key not empty for flow
+ENV NIFI_SENSITIVE_PROPS_KEY="ecyPxi3RrJQDofHCN/V2bmfJUbHwF+0b"
 
 ADD sh/ ${NIFI_BASE_DIR}/scripts/
 # Add custom processor nar file, and flow file
