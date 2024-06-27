@@ -43,8 +43,10 @@ ENV SINGLE_USER_CREDENTIALS_USERNAME=glaciation
 ENV SINGLE_USER_CREDENTIALS_PASSWORD=glaciationpassword
 
 ADD sh/ ${NIFI_BASE_DIR}/scripts/
-# Add custom processor nar file
+# Add custom processor nar file, and flow file
 ADD custom/jsonld-processor/nifi-jsonld-nar/target/nifi-jsonld-nar-2.0.0-M2.nar ${NIFI_BASE_DIR}/custom/
+ADD custom/flow.json.gz ${NIFI_BASE_DIR}/custom/
+
 RUN chmod -R +x ${NIFI_BASE_DIR}/scripts/*.sh \
    && apt-get update \
    && apt-get install -y unzip
@@ -112,6 +114,7 @@ WORKDIR ${NIFI_HOME}
 # Copy custom processor to extensions
 RUN cp ../custom/nifi-jsonld-nar-2.0.0-M2.nar extensions
 RUN cp ../custom/nifi-jsonld-nar-2.0.0-M2.nar nar_extensions
+RUN cp ../custom/flow.json.gz conf
  
 
 # Apply configuration and start NiFi
