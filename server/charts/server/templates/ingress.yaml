@@ -12,6 +12,6 @@ spec:
               service:
                 name: {{ include "app.fullname" . }}
                 port:
-                  number: 80
-            path: /
+                  number: 8443
+            path: /nifi
             pathType: Prefix
