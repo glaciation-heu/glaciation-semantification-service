@@ -3,6 +3,7 @@ kind: Ingress
 metadata:
   name: {{ include "app.fullname" . }}
   annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   ingressClassName: nginx
