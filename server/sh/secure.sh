@@ -71,8 +71,10 @@ prop_replace 'nifi.security.user.authorizer' "${NIFI_SECURITY_USER_AUTHORIZER:-m
 prop_replace 'nifi.security.user.login.identity.provider' "${NIFI_SECURITY_USER_LOGIN_IDENTITY_PROVIDER}"
 
 # Establish initial user and an associated admin identity
-sed -i -e 's|<property name="Initial User Identity 1"></property>|<property name="Initial User Identity 1">'"${INITIAL_ADMIN_IDENTITY}"'</property>|'  ${NIFI_HOME}/conf/authorizers.xml
-sed -i -e 's|<property name="Initial Admin Identity"></property>|<property name="Initial Admin Identity">'"${INITIAL_ADMIN_IDENTITY}"'</property>|'  ${NIFI_HOME}/conf/authorizers.xml
+#sed -i -e 's|<property name="Initial User Identity 1"></property>|<property name="Initial User Identity 1">'"${INITIAL_ADMIN_IDENTITY}"'</property>|'  ${NIFI_HOME}/conf/authorizers.xml
+#sed -i -e 's|<property name="Initial Admin Identity"></property>|<property name="Initial Admin Identity">'"${INITIAL_ADMIN_IDENTITY}"'</property>|'  ${NIFI_HOME}/conf/authorizers.xml
+sed -i -e 's|<property name="Initial User Identity 1"></property>|<property name="Initial User Identity 1">CN=my_username, OU=NiFi</property>|'  ${NIFI_HOME}/conf/authorizers.xml
+sed -i -e 's|<property name="Initial Admin Identity"></property>|<property name="Initial Admin Identity">CN=my_username, OU=NiFi</property>|'  ${NIFI_HOME}/conf/authorizers.xml
 
 if [ -n "${NODE_IDENTITY}" ]; then
     sed -i -e 's|<property name="Node Identity 1"></property>|<property name="Node Identity 1">'"${NODE_IDENTITY}"'</property>|'  ${NIFI_HOME}/conf/authorizers.xml
