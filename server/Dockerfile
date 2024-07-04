@@ -133,5 +133,8 @@ RUN cp ../custom/nifi.properties conf
 # Also we need to use relative path, because the exec form does not invoke a command shell,
 # thus normal shell processing does not happen:
 # https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example
+RUN echo "127.0.0.1 semantification.integration" >> /etc/hosts
+RUN echo "127.0.0.1 semantification.uc2" >> /etc/hosts
+
 ENTRYPOINT ["../scripts/start.sh"]
 
