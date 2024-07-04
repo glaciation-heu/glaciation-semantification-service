@@ -26,6 +26,12 @@ service:
   type: ClusterIP
   port: 8443
 
+hostAliases:
+  - ip: "127.0.0.1"
+    hostnames:
+    - "semantification.integration"
+    - "semantification.uc2"
+
 resources: {}
 
 ingressHostName: semantification-service
