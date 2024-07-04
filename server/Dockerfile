@@ -48,6 +48,8 @@ ADD sh/ ${NIFI_BASE_DIR}/scripts/
 # Add custom processor nar file, and flow file
 ADD custom/jsonld-processor/nifi-jsonld-nar/target/nifi-jsonld-nar-2.0.0-M2.nar ${NIFI_BASE_DIR}/custom/
 ADD custom/flow.json.gz ${NIFI_BASE_DIR}/custom/
+ADD custom/*.jks ${NIFI_BASE_DIR}/custom/
+ADD custom/nifi.properties ${NIFI_BASE_DIR}/custom/
 
 RUN chmod -R +x ${NIFI_BASE_DIR}/scripts/*.sh \
    && apt-get update \
