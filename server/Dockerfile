@@ -116,8 +116,8 @@ EXPOSE 8443/tcp 10000/tcp 8000/tcp
 WORKDIR ${NIFI_HOME}
 
 # Copy custom processor to extensions
-RUN cp ../custom/nifi-jsonld-nar-2.0.0-M2.nar extensions
-RUN cp ../custom/nifi-jsonld-nar-2.0.0-M2.nar nar_extensions
+#RUN cp ../custom/nifi-jsonld-nar-2.0.0-M2.nar extensions
+#RUN cp ../custom/nifi-jsonld-nar-2.0.0-M2.nar nar_extensions
 # Copy flow
 #RUN cp ../custom/flow.json.gz conf
 # Overwrite generated keystore truststore
