@@ -118,7 +118,8 @@ WORKDIR ${NIFI_HOME}
 # Copy custom processor to extensions
 RUN cp ../custom/nifi-jsonld-nar-2.0.0-M2.nar extensions
 RUN cp ../custom/nifi-jsonld-nar-2.0.0-M2.nar nar_extensions
-RUN cp ../custom/flow.json.gz conf
+# Copy flow
+#RUN cp ../custom/flow.json.gz conf
 # Overwrite generated keystore truststore
 RUN cp ../custom/*.jks conf
 RUN cp ../custom/nifi.properties conf
