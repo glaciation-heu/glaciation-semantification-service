@@ -5,6 +5,9 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/upstream-vhost: "semantification.integration:8443"
+    nginx.ingress.kubernetes.io/proxy-redirect-from: "https://semantification.integration:8443"
+    nginx.ingress.kubernetes.io/proxy-redirect-to: "https://semantification.integration"
 spec:
   ingressClassName: nginx
   rules:
