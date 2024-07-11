@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   semantification-service:
   - apiVersion: v2
+    appVersion: 0.1.37
+    created: "2024-07-11T12:24:29.431500995Z"
+    description: GLACIATION Semantification service
+    digest: 2ba777eddc4418791f8515aad6b2619d7dae871ec4e3fc8cad6cb36e45768059
+    name: semantification-service
+    type: application
+    urls:
+    - https://glaciation-heu.github.io/glaciation-semantification-service/helm-charts/semantification-service-0.1.37.tgz
+    version: 0.1.37
+  - apiVersion: v2
     appVersion: 0.1.36
     created: "2024-07-11T11:56:49.200492063Z"
     description: GLACIATION Semantification service
@@ -672,4 +682,4 @@ entries:
     urls:
     - https://glaciation-heu.github.io/glaciation-semantification-service/helm-charts/server-0.1.0-dev.5.main.62a743a7.tgz
     version: 0.1.0-dev.5.main.62a743a7
-generated: "2024-07-11T12:19:07.926041223Z"
+generated: "2024-07-11T12:24:29.431057857Z"
