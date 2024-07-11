@@ -127,8 +127,8 @@ case ${AUTH} in
 esac
 
 # Overwrite keystore/truststore and nifi.properties
-cp ../custom/*.jks ${NIFI_HOME}/conf
-cp ../custom/nifi.properties ${NIFI_HOME}/conf
+#cp ../custom/*.jks ${NIFI_HOME}/conf
+#cp ../custom/nifi.properties ${NIFI_HOME}/conf
 
 # Continuously provide logs so that 'docker logs' can produce them
 "${NIFI_HOME}/bin/nifi.sh" run &
