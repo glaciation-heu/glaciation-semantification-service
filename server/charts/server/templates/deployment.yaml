@@ -37,11 +37,6 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          #env:
-          #  - name: NIFI_WEB_PROXY_HOST
-          #    value: semantification.integration
-          #  - name: NIFI_WEB_HTTPS_PORT
-          #    value: "8443"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
