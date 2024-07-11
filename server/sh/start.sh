@@ -48,6 +48,7 @@ prop_replace 'nifi.remote.input.http.enabled'   'true'
 #prop_replace 'nifi.cluster.protocol.is.secure'  'false'
 # Test
 prop_replace 'nifi.web.https.host'		'0.0.0.0'
+prop_replace 'nifi.web.http.port'       '8080'
 
 # Set nifi-toolkit properties files and baseUrl
 "${scripts_dir}/toolkit.sh"
