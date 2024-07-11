@@ -38,25 +38,24 @@ prop_replace 'nifi.python.extensions.source.directory.default'  "${NIFI_HOME}/py
 # Setup NiFi to scan for new NARs in nar_extensions
 prop_replace 'nifi.nar.library.autoload.directory'  "${NIFI_HOME}/nar_extensions"
 # Establish baseline properties
-#prop_replace 'nifi.web.https.port'              "${NIFI_WEB_HTTPS_PORT:-8443}"
-#prop_replace 'nifi.web.https.host'              "${NIFI_WEB_HTTPS_HOST:-$HOSTNAME}"
-#prop_replace 'nifi.web.proxy.host'              "${NIFI_WEB_PROXY_HOST}"
-#prop_replace 'nifi.remote.input.host'           "${NIFI_REMOTE_INPUT_HOST:-$HOSTNAME}"
-#prop_replace 'nifi.remote.input.socket.port'    "${NIFI_REMOTE_INPUT_SOCKET_PORT:-10000}"
-prop_replace 'nifi.remote.input.secure'         'false'
-prop_replace 'nifi.remote.input.http.enabled'   'true'
-#prop_replace 'nifi.cluster.protocol.is.secure'  'false'
+prop_replace 'nifi.web.https.port'              "${NIFI_WEB_HTTPS_PORT:-8443}"
+prop_replace 'nifi.web.https.host'              "${NIFI_WEB_HTTPS_HOST:-$HOSTNAME}"
+prop_replace 'nifi.web.proxy.host'              "${NIFI_WEB_PROXY_HOST}"
+prop_replace 'nifi.remote.input.host'           "${NIFI_REMOTE_INPUT_HOST:-$HOSTNAME}"
+prop_replace 'nifi.remote.input.socket.port'    "${NIFI_REMOTE_INPUT_SOCKET_PORT:-10000}"
+prop_replace 'nifi.remote.input.secure'         'true'
+prop_replace 'nifi.cluster.protocol.is.secure'  'true'
 # Test
-prop_replace 'nifi.web.https.host'		'0.0.0.0'
+prop_replace 'nifi.web.https.host'		'localhost'
 
 # Set nifi-toolkit properties files and baseUrl
 "${scripts_dir}/toolkit.sh"
-#prop_replace 'baseUrl' "https://${NIFI_WEB_HTTPS_HOST:-$HOSTNAME}:${NIFI_WEB_HTTPS_PORT:-8443}" ${nifi_toolkit_props_file}
+prop_replace 'baseUrl' "https://${NIFI_WEB_HTTPS_HOST:-$HOSTNAME}:${NIFI_WEB_HTTPS_PORT:-8443}" ${nifi_toolkit_props_file}
 
-#prop_replace 'keystore'           "${NIFI_HOME}/conf/keystore.p12"      ${nifi_toolkit_props_file}
-#prop_replace 'keystoreType'       "PKCS12"                              ${nifi_toolkit_props_file}
-#prop_replace 'truststore'         "${NIFI_HOME}/conf/truststore.p12"    ${nifi_toolkit_props_file}
-#prop_replace 'truststoreType'     "PKCS12"                              ${nifi_toolkit_props_file}
+prop_replace 'keystore'           "${NIFI_HOME}/conf/keystore.p12"      ${nifi_toolkit_props_file}
+prop_replace 'keystoreType'       "PKCS12"                              ${nifi_toolkit_props_file}
+prop_replace 'truststore'         "${NIFI_HOME}/conf/truststore.p12"    ${nifi_toolkit_props_file}
+prop_replace 'truststoreType'     "PKCS12"                              ${nifi_toolkit_props_file}
 
 if [ -z "${NIFI_WEB_PROXY_HOST}" ]; then
     echo 'NIFI_WEB_PROXY_HOST was not set but NiFi is configured to run in a secure mode. The NiFi UI may be inaccessible if using port mapping or connecting through a proxy.'
@@ -106,26 +105,26 @@ fi
 . "${scripts_dir}/update_cluster_state_management.sh"
 
 # Check if we are secured or unsecured
-#case ${AUTH} in
-#    tls)
-#        echo 'Enabling Two-Way SSL user authentication'
-#        . "${scripts_dir}/secure.sh"
-#        ;;
-#    ldap)
-#        echo 'Enabling LDAP user authentication'
-#        # Reference ldap-provider in properties
-#        export NIFI_SECURITY_USER_LOGIN_IDENTITY_PROVIDER="ldap-provider"
-#
-#        . "${scripts_dir}/secure.sh"
-#        . "${scripts_dir}/update_login_providers.sh"
-#        ;;
-#    oidc)
-#        echo 'Enabling OIDC user authentication'
-#
-#        . "${scripts_dir}/secure.sh"
-#        . "${scripts_dir}/update_oidc_properties.sh"
-#        ;;
-#esac
+case ${AUTH} in
+    tls)
+        echo 'Enabling Two-Way SSL user authentication'
+        . "${scripts_dir}/secure.sh"
+        ;;
+    ldap)
+        echo 'Enabling LDAP user authentication'
+        # Reference ldap-provider in properties
+        export NIFI_SECURITY_USER_LOGIN_IDENTITY_PROVIDER="ldap-provider"
+
+        . "${scripts_dir}/secure.sh"
+        . "${scripts_dir}/update_login_providers.sh"
+        ;;
+    oidc)
+        echo 'Enabling OIDC user authentication'
+
+        . "${scripts_dir}/secure.sh"
+        . "${scripts_dir}/update_oidc_properties.sh"
+        ;;
+esac
 
 # Overwrite keystore/truststore and nifi.properties
 #cp ../custom/*.jks ${NIFI_HOME}/conf
