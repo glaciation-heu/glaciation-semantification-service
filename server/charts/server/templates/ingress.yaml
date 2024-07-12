@@ -20,7 +20,7 @@ spec:
             pathType: Prefix
           - backend:
               service:
-                name: listener
+                name: {{ include "app.fullname" . }}
                 port:
                   number: 8889
             path: /contentListener
