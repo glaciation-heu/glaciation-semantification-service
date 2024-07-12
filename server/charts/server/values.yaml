@@ -28,7 +28,7 @@ service:
   - name: ui
     port: 8080
     targetPort: 8080
-  - name: contentListner
+  - name: content-listner
     port: 8889
     targetPort: 8889
 
