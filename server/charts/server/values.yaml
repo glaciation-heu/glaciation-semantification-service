@@ -24,7 +24,13 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 8080
+  ports:
+  - name: ui
+    port: 8080
+    targetPort: 8080
+  - name: contentListner
+    port: 8889
+    targetPort: 8889
 
 hostAliases:
   - ip: "0.0.0.0"

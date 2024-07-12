@@ -18,3 +18,10 @@ spec:
                   number: 8080
             path: /nifi
             pathType: Prefix
+          - backend:
+              service:
+                name: contentListener
+                port:
+                  number: 8889
+            path: /contentListener
+            pathType: Prefix
