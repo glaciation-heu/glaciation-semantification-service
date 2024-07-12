@@ -38,6 +38,8 @@ ENV NIFI_PID_DIR=${NIFI_HOME}/run
 ENV NIFI_LOG_DIR=${NIFI_HOME}/logs
 
 ADD sh/ ${NIFI_BASE_DIR}/scripts/
+# Add custom files including flow files
+ADD custom/ ${NIFI_BASE_DIR}/custom/
 RUN chmod -R +x ${NIFI_BASE_DIR}/scripts/*.sh
 
 # Setup NiFi user and create necessary directories
@@ -88,6 +90,9 @@ RUN echo "#!/bin/sh\n" > $NIFI_HOME/bin/nifi-env.sh
 EXPOSE 8080 10000 8000
 
 WORKDIR ${NIFI_HOME}
+
+# Copy custom flow file
+RUN cp ../custom/flow.xml.gz conf
 
 # Apply configuration and start NiFi
 #
