@@ -18,9 +18,11 @@ serviceAccount:
 podAnnotations: {}
 podLabels: {}
 
-podSecurityContext: {}
+podSecurityContext: {} 
 
-securityContext: {}
+securityContext:
+  runAsUser: 472
+  fsGroup: 472
 
 service:
   type: ClusterIP
