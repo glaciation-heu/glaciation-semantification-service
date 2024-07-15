@@ -72,7 +72,7 @@ spec:
       - name: uc2-data
         {{- if .Values.persistence.enabled }}
         persistentVolumeClaim:
-          claimName: {{ .Values.persistence.existingClaim | default (include "app.fullname" .) }}
+          claimName: uc2-pvc
         {{- else }}
         emptyDir: { }
         {{- end }}
