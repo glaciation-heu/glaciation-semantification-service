@@ -68,10 +68,10 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      volums:
+      volumes:
       - name: uc2-data
         {{- if .Values.persistence.enabled }}
-        persistentVolumClaim:
+        persistentVolumeClaim:
           claimName: {{ .Values.persistence.existingClaim | default (include "app.fullname" .) }}
         {{- else }}
         emptyDir: { }
