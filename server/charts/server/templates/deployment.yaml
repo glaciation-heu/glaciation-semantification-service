@@ -50,6 +50,12 @@ spec:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /opt/nifi/nifi-current/output
+              name: uc2-data
+            {{- if .Values.persistence.additionalMounts }}
+              {{- .Values.persistence.additionalMounts | toYaml | nindent 12 }}
+            {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -62,3 +68,15 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      volums:
+      - name: uc2-data
+        {{- if .Values.persistence.enabled }}
+        persistentVolumClaim:
+          claimName: {{ .Values.persistence.existingClaim | default (include "app.fullname" .) }}
+        {{- else }}
+        emptyDir: { }
+        {{- end }}
+        {{- if .Values.persistence.additionalVolumes }}
+          {{- .Values.persistence.additionalVolumes | toYaml | nindent 8 }}
+        {{- end }}
+

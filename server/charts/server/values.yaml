@@ -41,3 +41,12 @@ hostAliases:
 resources: {}
 
 ingressHostName: semantification-service
+
+persistence:
+  storageClass: "longhorn"
+  existingClaim: ""
+  enabled: true
+  accessMode: ReadWriteMany
+  size: 10Gi
+  additionalVolumes: []
+  additionalMounts: []
