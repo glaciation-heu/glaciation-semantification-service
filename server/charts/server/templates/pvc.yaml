@@ -5,5 +5,5 @@ metadata:
   labels:
     {{- include "app.labels" . | nindent 4 }}
 spec:
-  storageClassName: ""
+  storageClassName: local-storage
   volumeName: uc2-pv
