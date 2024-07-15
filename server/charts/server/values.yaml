@@ -45,8 +45,8 @@ ingressHostName: semantification-service
 persistence:
   storageClass: "longhorn"
   existingClaim: ""
-  enabled: false
-  accessMode: ReadWriteMany
+  enabled: true
+  accessMode: ReadWriteOnce
   size: 10Gi
   additionalVolumes: []
   additionalMounts: []
