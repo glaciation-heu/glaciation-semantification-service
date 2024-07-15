@@ -9,9 +9,6 @@ spec:
   - ReadWriteMany
   persistentVolumeReclaimPolicy: Recycle
   storageClassName: local-storage
-  claimRef:
-    name: uc2-pvc
-    namespace: semantification 
   local:
     path: /tmp/uc2
   nodeAffinity:
