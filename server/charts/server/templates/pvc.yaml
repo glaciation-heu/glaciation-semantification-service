@@ -6,4 +6,9 @@ metadata:
     {{- include "app.labels" . | nindent 4 }}
 spec:
   storageClassName: local-storage
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi
   volumeName: uc2-pv
