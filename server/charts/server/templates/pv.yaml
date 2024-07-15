@@ -6,11 +6,11 @@ spec:
   capacity:
     storage: 2Gi
   accessModes:
-  - ReadWriteMany
+  - ReadWriteOnce
   persistentVolumeReclaimPolicy: Recycle
   storageClassName: local-storage
   local:
-    path: /tmp/uc2
+    path: /tmp
   nodeAffinity:
     required:
       nodeSelectorTerms:
