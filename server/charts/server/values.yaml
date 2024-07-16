@@ -19,8 +19,8 @@ podAnnotations: {}
 podLabels: {}
 
 podSecurityContext: 
-  runAsUser: 472
-  fsGroup: 472
+  runAsUser: 1000
+  fsGroup: 1000
 
 securityContext: {}
 
