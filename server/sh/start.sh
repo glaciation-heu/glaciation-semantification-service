@@ -51,7 +51,7 @@ prop_replace 'nifi.web.http.host'		'0.0.0.0'
 prop_replace 'nifi.web.http.port'       '8080'
 
 # Set nifi-toolkit properties files and baseUrl
-"${scripts_dir}/toolkit.sh"
+#"${scripts_dir}/toolkit.sh"
 #prop_replace 'baseUrl' "https://${NIFI_WEB_HTTPS_HOST:-$HOSTNAME}:${NIFI_WEB_HTTPS_PORT:-8443}" ${nifi_toolkit_props_file}
 
 #prop_replace 'keystore'           "${NIFI_HOME}/conf/keystore.p12"      ${nifi_toolkit_props_file}
