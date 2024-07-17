@@ -102,6 +102,8 @@ RUN cp ../custom/flow.xml.gz conf
 # Copy custom extensions
 RUN cp ../custom/jsonld-processor/nifi-jsonld-nar/target/*.nar extensions
 RUN cp ../custom/jsonld-processor/nifi-jsonld-nar/target/*.nar nar_extensions
+# Copy nifi properties
+RUN cp ../custom/nifi.properties conf
 
 # Apply configuration and start NiFi
 #
