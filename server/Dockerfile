@@ -97,6 +97,8 @@ WORKDIR ${NIFI_HOME}
 
 # Copy custom flow file
 RUN cp ../custom/flow.xml.gz conf
+# Copy custom extensions
+RUN cp ../custom/jsonld-processor/nifi-jsonld-nar/target/*.nar extensions
 
 # Apply configuration and start NiFi
 #

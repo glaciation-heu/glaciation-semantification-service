@@ -37,7 +37,7 @@ import org.apache.nifi.processor.io.OutputStreamCallback;
 import java.util.*;
 import java.io.*;
 import java.net.*;
-import java.net.http.HttpClient;
+//import java.net.http.HttpClient;
 
 import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.DocumentContext;
@@ -46,9 +46,9 @@ import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.spi.json.JacksonJsonProvider;
 import com.jayway.jsonpath.spi.json.JsonProvider;
 
-import org.apache.jena.query.Query;
-import org.apache.jena.query.QueryFactory;
-import org.apache.jena.query.ResultSetFormatter;
+//import org.apache.jena.query.Query;
+//import org.apache.jena.query.QueryFactory;
+//import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
@@ -56,12 +56,12 @@ import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
-import org.apache.jena.rdfconnection.RDFConnection;
-import org.apache.jena.rdfconnection.RDFConnectionFuseki;
-import org.apache.jena.rdfconnection.RDFConnectionRemoteBuilder;
+//import org.apache.jena.rdfconnection.RDFConnection;
+//import org.apache.jena.rdfconnection.RDFConnectionFuseki;
+//import org.apache.jena.rdfconnection.RDFConnectionRemoteBuilder;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
-import org.apache.jena.http.auth.*;
+//import org.apache.jena.http.auth.*;
 
 
 @Tags({"semantification"})
@@ -137,17 +137,22 @@ public class Semantification extends AbstractProcessor {
         }
         // Read JSON
         String content = getContent(flowFile, session);
+        
         String timestamp = JsonPath.read(content, "$.timestamp");
+
+        System.out.println(timestamp);
+
         String resolution = JsonPath.read(content, "$.frame_resolution");
         String robotId = JsonPath.read(content, "$.robot_id");
         String cameraId = JsonPath.read(content, "$.camera_id");
         List<Map<String, Object>> detections = JsonPath.read(content, "$.detections");
 
         // Semantify fields
-        Model model = ModelFactory.createDefaultModel();
         String PREFIXGLC = "https://glaciation-project.eu/reference_model#";
         String PREFIXSAREF = "https://saref.etsi.org/core/";
         
+        Model model = ModelFactory.createDefaultModel();
+
         Property hasTimestamp = model.createProperty(PREFIXSAREF+"hasTimestamp");
         Property fileLocation = model.createProperty(PREFIXGLC+"fileLocation");
         Property hasDetection = model.createProperty(PREFIXGLC+"hasDetection");
@@ -164,6 +169,9 @@ public class Semantification extends AbstractProcessor {
 
         String frame = PREFIXGLC + flowFile.getAttribute("filename");
         Resource frameResource = model.createResource(frame);
+        
+        System.out.println(frame);
+
         Resource yoloResultResource = model.createResource(PREFIXGLC + "YOLOResult");
         Resource detectionResource = model.createResource(PREFIXGLC + "Detection");
         Resource bboxResource = model.createResource(PREFIXGLC + "BBox");
@@ -171,7 +179,7 @@ public class Semantification extends AbstractProcessor {
         Resource cameraResource = model.createResource(PREFIXGLC + cameraId);
 
         frameResource.addProperty(hasTimestamp, timestamp);
-        frameResource.addProperty(fileLocation, flowFile.getAttribute("directory"));
+        //frameResource.addProperty(fileLocation, flowFile.getAttribute("directory"));
         frameResource.addProperty(RDF.type, yoloResultResource);
         robotResource.addProperty(makesMeasurement, frameResource);
         robotResource.addProperty(consistsOf, cameraResource);
@@ -190,46 +198,57 @@ public class Semantification extends AbstractProcessor {
         }
         
         // Authentivation
-        //AuthEnv.get().registerUsernamePassword(URI.create(context.getProperty(DESTINATION).getValue()+"data"), "glaciationnifi", "glaciationnifi");
-        Authenticator authenticator = AuthLib.authenticator("admin", "password");
-        HttpClient httpClient = HttpClient.newBuilder()
-            .authenticator(authenticator)
-            .build();
+        //Authenticator authenticator = AuthLib.authenticator("admin", "password");
+        //HttpClient httpClient = HttpClient.newBuilder()
+        //    .authenticator(authenticator)
+        //    .build();
         // Write to Jena
-        RDFConnection connection = RDFConnectionFuseki.create()
-                //.destination("http://localhost:3030/ds/")
-                //.queryEndpoint("query")
-                //.updateEndpoint("update")
-                //.gspEndpoint("data")
-                .destination(context.getProperty(DESTINATION).getValue())
-                .gspEndpoint(context.getProperty(GSP_ENDPOINT).getValue())
-                .acceptHeaderSelectQuery("application/sparql-results+json, application/sparql-results+xml;q=0.9")
-                .httpClient(httpClient)
-                .build();
+        //RDFConnection connection = RDFConnectionFuseki.create()
+        //        .destination(context.getProperty(DESTINATION).getValue())
+        //        .gspEndpoint(context.getProperty(GSP_ENDPOINT).getValue())
+        //        .acceptHeaderSelectQuery("application/sparql-results+json, application/sparql-results+xml;q=0.9")
+        //        .httpClient(httpClient)
+        //        .build();
         
         // Get String version of the model with JSON-LD format
         String syntax = "JSON-LD";
         StringWriter out = new StringWriter();
         model.write(out, syntax);
         String modelString = out.toString();
+
+        // change flowFile with model content
+        flowFile = session.write(flowFile, new OutputStreamCallback() {
+            @Override
+            public void process(OutputStream out) throws IOException {
+                out.write(modelString.getBytes());
+            }
+        });
 	    
-	    try ( RDFConnection conn = connection ) {
-            conn.load(model);
-            // change flowFile with model content
-            flowFile = session.write(flowFile, new OutputStreamCallback() {
-                @Override
-                public void process(OutputStream out) throws IOException {
-                    out.write(modelString.getBytes());
-                }
-            });
-        }
+	    //try ( RDFConnection conn = connection ) {
+        //    conn.load(model);
+        //    // change flowFile with model content
+        //    flowFile = session.write(flowFile, new OutputStreamCallback() {
+        //        @Override
+        //        public void process(OutputStream out) throws IOException {
+        //            out.write(modelString.getBytes());
+        //        }
+        //    });
+        //}
+
+        // change flowFile with model content
+        flowFile = session.write(flowFile, new OutputStreamCallback() {
+            @Override
+            public void process(OutputStream out) throws IOException {
+                out.write(modelString.getBytes());
+            }
+        });
         
         // Transfer flow as it was
         session.transfer(flowFile, SUCCESS);
     }
 
     private String getContent(FlowFile flowFile, ProcessSession session) {
-        final var byteArrayOutputStream = new ByteArrayOutputStream();
+        final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         session.exportTo(flowFile, byteArrayOutputStream);
         return byteArrayOutputStream.toString();    
 
