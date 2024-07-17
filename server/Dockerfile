@@ -38,8 +38,10 @@ ENV NIFI_PID_DIR=${NIFI_HOME}/run
 ENV NIFI_LOG_DIR=${NIFI_HOME}/logs
 
 ADD sh/ ${NIFI_BASE_DIR}/scripts/
+
 # Add custom files including flow files
 ADD custom/ ${NIFI_BASE_DIR}/custom/
+
 RUN chmod -R +x ${NIFI_BASE_DIR}/scripts/*.sh
 
 # Setup NiFi user and create necessary directories
@@ -99,6 +101,7 @@ WORKDIR ${NIFI_HOME}
 RUN cp ../custom/flow.xml.gz conf
 # Copy custom extensions
 RUN cp ../custom/jsonld-processor/nifi-jsonld-nar/target/*.nar extensions
+RUN cp ../custom/jsonld-processor/nifi-jsonld-nar/target/*.nar nar_extensions
 
 # Apply configuration and start NiFi
 #
