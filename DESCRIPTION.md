@@ -1,6 +1,7 @@
 # Description
 The semantification component is a data ingestion pipeline built with [Apache NiFi](https://archive.apache.org/dist/nifi/1.12.1/) for UC2. 
 * URL: http://semantification.integration/nifi/ or *validation* instead of *integration* for the one deployed in internal validation cluster
+* Relevant work package and deliverable: WP6, D6.3
 
 Each processed YOLO result is converted to an individual JSON-LD format and sent
 to the Apache NiFi data pipeline running on the GLACIATION platform. The pipeline
