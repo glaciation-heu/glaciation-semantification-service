@@ -11,4 +11,16 @@ case GitHub repository](https://github.com/glaciation-heu/DELL-UC).
 
 ![image](https://github.com/user-attachments/assets/70eed011-78da-4e90-aaeb-88a1c2962027)
 
+Based on these use case datasets stored in DKG, we can run relevant workloads using
+the data. One example is inspecting object distribution to understand the frequency
+and distribution of detected objects across different robots on the floor. This in turn can
+provide several key insights:
+* Identifying commonly detected objects (e.g., tools, machines, vehicles) to track
+the availability and utilization of assets.
+* Detecting potential misplacement of items (e.g., safety equipment like helmets
+or gloves in the wrong areas).
+
+More implementation details regarding Use Case 2 can be found in our [use case
+GitHub repository](https://github.com/glaciation-heu/DELL-UC), and [workload repository](https://github.com/glaciation-heu/glaciation-uc2-workload-service).
+
 
