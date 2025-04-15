@@ -25,3 +25,10 @@ spec:
                   number: 8889
             path: /contentListener
             pathType: Prefix
+          - backend:
+              service:
+                name: {{ include "app.fullname" . }}
+                port:
+                  number: 8890
+            path: /workload2Listener
+            pathType: Prefix
