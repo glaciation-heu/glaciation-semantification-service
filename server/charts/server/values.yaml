@@ -33,7 +33,7 @@ service:
   - name: listener
     port: 8889
     targetPort: 8889
-  - name: workload2listener
+  - name: wl2listener
     port: 8890
     targetPort: 8890
 
